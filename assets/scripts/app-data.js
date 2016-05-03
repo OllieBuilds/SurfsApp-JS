@@ -1,8 +1,8 @@
 'use strict';
 
 const app = {
-  // api: 'https://surfsapp.herokuapp.com/',
-  api: 'https://localhost:8080/'
+  api: 'https://surfsapp.herokuapp.com/',
+  // api: 'https://localhost:8080/'
   // noaa: 'http://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&application=NOS.COOPS.TAC.WL&begin_date=20160502&end_date=20160503&datum=MLLW&station=8443970&time_zone=LST&units=english&interval=&format=json'
 
   // noaa: 'http://tidesandcurrents.noaa.gov/api/datagetter?begin_date=20160503&range=1&station=8443970&product=water_temperature&units=english&time_zone=lst&interval=h&application=surfsapp&format=json'
