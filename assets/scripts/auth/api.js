@@ -37,6 +37,16 @@ const signOut = (success, failure) => {
 };
 
 // Quiver and Journal actions
+const displayJournal = (data) => {
+  let sessionsTemplate = require('../templates/sessions.handlebars');
+  $('.show-sessions').append(sessionsTemplate({ sessions:data }));
+};
+
+const displayQuiver = (data) => {
+  let quiverTemplate = require('../templates/quiver.handlebars');
+  $('.show-quiver').append(quiverTemplate({ surfboards:data }));
+};
+
 const addBoard = (success, failure, data) => {
   $.ajax({
     method: 'POST',
@@ -60,16 +70,6 @@ const showQuiver = () => {
     displayQuiver(data);
     console.log(data);
   });
-};
-
-const displayQuiver = (data) => {
-  let quiverTemplate = require('../templates/quiver.handlebars');
-
-  // let quiverTemplateSelect = require('../templates/quiver-select.handlebars');
-  // let quiverTemplateSelect = require('../templates/quiver-select.handlebars');
-  $('.show-quiver').append(quiverTemplate({ surfboards:data }));
-
-  // $('.show-quiver-select').append(quiverTemplateSelect({surfboards:data}));
 };
 
 const addSession = (success, failure, data) => {
@@ -111,11 +111,6 @@ const showSessions = () => {
       deleteSession(authUi.success, authUi.failure, id);
     });
   });
-};
-
-const displayJournal = (data) => {
-  let sessionsTemplate = require('../templates/sessions.handlebars');
-  $('.show-sessions').append(sessionsTemplate({ sessions:data }));
 };
 
 const addBoardToSession = (success, failure, data) => {

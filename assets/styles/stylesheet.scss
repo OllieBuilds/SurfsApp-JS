@@ -1,6 +1,6 @@
 .body {
-  background-repeat: no-repeat;
   background-position: right bottom;
+  background-repeat: no-repeat;
   background-size: cover;
   height: 700px;
   width: 100%;
@@ -8,28 +8,28 @@
 
 .page-header {
   background-color: $faded-blue;
-  width: 100%;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .side-nav {
   background-color: $faded-blue;
-  max-width: 400px;
+  left: 0;
   margin: 25px;
+  max-width: 400px;
   position: absolute;
-  left: 0px;
 
-    button{
-      // max-width: 250px;
-      padding: 10px;
-      margin: 10px;
-    }
+  button {
+    // max-width: 250px;
+    margin: 10px;
+    padding: 10px;
+  }
 }
 
 .noaa {
   float: right;
+  left: 200px;
   position: absolute;
   right: 0;
-  left: 200px;
 }
