@@ -80,6 +80,13 @@ webpackJsonp([0],[
 	    authApi.signOut(authUi.success, authUi.failure);
 	  });
 
+	  $('#newPassword').on('submit', function (event) {
+	    event.preventDefault();
+	    var data = getFormFields(this);
+	    console.log('pw change');
+	    authApi.changePassword(authUi.success, authUi.failure, data);
+	  });
+
 	  // Quiver and Journal actions
 
 	  $('#add_board').on('submit', function (event) {
@@ -106,8 +113,8 @@ webpackJsonp([0],[
 
 	$('#showSessions').on('click', function (event) {
 	  event.preventDefault();
-	  $('.show-sessions').html('');
 	  $('.show-quiver').html('');
+	  $('.show-sessions').html('');
 	  authApi.showQuiver();
 	  authApi.showSessions();
 	});
@@ -241,15 +248,31 @@ webpackJsonp([0],[
 	  }).done(success).fail(failure);
 	};
 
+	var changePassword = function changePassword(success, failure, data) {
+	  console.log(app.user1.authToken);
+	  $.ajax({
+	    method: 'PATCH',
+	    url: app.api + 'change-password/' + app.user1.id,
+	    headers: {
+	      Authorization: 'Token token=' + app.user1.authToken
+	    },
+	    data: data
+	  }).done(success).fail(failure);
+	};
+
 	// Quiver and Journal actions
 	var displayJournal = function displayJournal(data) {
 	  var sessionsTemplate = __webpack_require__(8);
 	  $('.show-sessions').append(sessionsTemplate({ sessions: data }));
+	  showQuiver();
 	};
 
 	var displayQuiver = function displayQuiver(data) {
+	  $('#show-quiver').html('');
 	  var quiverTemplate = __webpack_require__(28);
-	  $('.show-quiver').append(quiverTemplate({ surfboards: data }));
+	  // let quivTem = require('../templates/quiver-select.handlebars');
+	  $('#show-quiver').append(quiverTemplate({ surfboards: data }));
+	  // $('#show-quiver-sesh').append(quivTem({surfboards:data}));
 	};
 
 	var addBoard = function addBoard(success, failure, data) {
@@ -271,6 +294,8 @@ webpackJsonp([0],[
 	      Authorization: 'Token token=' + app.user1.token
 	    }
 	  }).done(function (data) {
+	    // let quivTem = require('../templates/quiver-select.handlebars');
+	    // $('#show-quiver-sesh').append(quivTem({surfboards:data}));
 	    displayQuiver(data);
 	    console.log(data);
 	  });
@@ -305,9 +330,10 @@ webpackJsonp([0],[
 	    }
 	  }).done(function (data) {
 	    displayJournal(data);
-	    showQuiver();
+	    // showQuiver();
 	    $('#delete_session').on('click', function (event) {
 	      event.preventDefault();
+	      // debugger;
 	      var id = this.name;
 	      console.log(id);
 	      deleteSession(authUi.success, authUi.failure, id);
@@ -343,7 +369,9 @@ webpackJsonp([0],[
 	  showSessions: showSessions,
 	  addBoardToSession: addBoardToSession,
 	  deleteSession: deleteSession,
-	  NoaaData: NoaaData
+	  NoaaData: NoaaData,
+	  changePassword: changePassword,
+	  displayQuiver: displayQuiver
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
@@ -374,7 +402,6 @@ webpackJsonp([0],[
 	var app = __webpack_require__(6);
 
 	var success = function success(data) {
-	  console.log(data);
 	  console.log('success');
 	};
 
@@ -421,7 +448,7 @@ webpackJsonp([0],[
 	    + alias2(alias1((depth0 != null ? depth0.surfboard_id : depth0), depth0))
 	    + "\n<br>\n<button type=\"button\" class=\"btn btn-default\" id=\"delete_session\" name="
 	    + alias2(alias1((depth0 != null ? depth0.id : depth0), depth0))
-	    + ">\n  Delete\n</button>\n</form>\n</li>\n";
+	    + ">\n  Delete\n</button>\n</form>\n</li>\n<ul id=\"show-quiver-sesh\">\n</ul>\n";
 	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 
