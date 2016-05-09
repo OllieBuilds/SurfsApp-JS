@@ -115,6 +115,49 @@
 </button>
 
 <hr>
+
+<!-- change password -->
+<button type="button" class="btn btn-primary btn-lg disabled" data-toggle="modal" data-target="#changePw">
+  Change Password
+</button>
+
+<div class="modal fade" id="changePw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" id="newPassword">
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Old Password</label>
+            <div class="col-sm-10">
+              <input name="passwords[old]" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">New Password</label>
+            <div class="col-sm-10">
+              <input name="passwords[new]" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default">Change Password</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">Close</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
 <!-- INPUT SECTION -->
 <!-- surfboard input -->
 <button type="button" class="btn btn-primary btn-lg disabled"  data-toggle="modal" data-target="#surfboard">
@@ -234,7 +277,7 @@
 <form class="form-horizontal">
   <div class="form-group">
     <div class="col-sm-10">
-      <ul class="show-quiver">
+      <ul id="show-quiver">
       </ul><!-- HANDLE BAR THIS LIST!!!!!!!!!!!!! -->
       <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">Close</span>

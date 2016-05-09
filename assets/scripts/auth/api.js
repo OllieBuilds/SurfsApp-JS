@@ -36,15 +36,32 @@ const signOut = (success, failure) => {
   .fail(failure);
 };
 
+const changePassword = (success, failure, data) => {
+  console.log(app.user1.authToken);
+  $.ajax({
+    method: 'PATCH',
+    url : app.api + 'change-password/' + app.user1.id,
+    headers: {
+      Authorization: 'Token token=' + app.user1.authToken,
+    },
+    data
+  }).done(success)
+  .fail(failure);
+};
+
 // Quiver and Journal actions
 const displayJournal = (data) => {
   let sessionsTemplate = require('../templates/sessions.handlebars');
   $('.show-sessions').append(sessionsTemplate({ sessions:data }));
+  showQuiver();
 };
 
 const displayQuiver = (data) => {
+  $('#show-quiver').html('');
   let quiverTemplate = require('../templates/quiver.handlebars');
-  $('.show-quiver').append(quiverTemplate({ surfboards:data }));
+  // let quivTem = require('../templates/quiver-select.handlebars');
+  $('#show-quiver').append(quiverTemplate({ surfboards:data }));
+  // $('#show-quiver-sesh').append(quivTem({surfboards:data}));
 };
 
 const addBoard = (success, failure, data) => {
@@ -67,6 +84,8 @@ const showQuiver = () => {
       Authorization: 'Token token=' + app.user1.token,
     },
   }).done(function (data) {
+    // let quivTem = require('../templates/quiver-select.handlebars');
+    // $('#show-quiver-sesh').append(quivTem({surfboards:data}));
     displayQuiver(data);
     console.log(data);
   });
@@ -103,9 +122,10 @@ const showSessions = () => {
     },
   }).done(function (data) {
     displayJournal(data);
-    showQuiver();
+    // showQuiver();
     $('#delete_session').on('click', function (event) {
       event.preventDefault();
+      // debugger;
       let id = this.name;
       console.log(id);
       deleteSession(authUi.success, authUi.failure, id);
@@ -144,4 +164,6 @@ module.exports = {
   addBoardToSession,
   deleteSession,
   NoaaData,
+  changePassword,
+  displayQuiver
 };

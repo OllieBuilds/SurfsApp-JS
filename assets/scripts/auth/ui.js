@@ -2,7 +2,6 @@
 const app = require('../app-data.js');
 
 const success = (data) => {
-  console.log(data);
   console.log('success');
 };
 

@@ -27,6 +27,13 @@ const addHandlers = () => {
     authApi.signOut(authUi.success, authUi.failure);
   });
 
+  $('#newPassword').on('submit', function (event) {
+    event.preventDefault();
+    let data = getFormFields(this);
+    console.log('pw change');
+    authApi.changePassword(authUi.success, authUi.failure, data);
+  });
+
   // Quiver and Journal actions
 
   $('#add_board').on('submit', function (event) {
@@ -53,8 +60,8 @@ $('#add_session').on('submit', function (event) {
 
 $('#showSessions').on('click', function (event) {
   event.preventDefault();
-  $('.show-sessions').html('');
   $('.show-quiver').html('');
+  $('.show-sessions').html('');
   authApi.showQuiver();
   authApi.showSessions();
 });
@@ -77,6 +84,7 @@ $('#add_board_to_session').on('submit', function (event) {
   console.log(sessionId);
   authApi.addBoardToSession(authUi.success, authUi.failure, data);
 });
+
 
 module.exports = {
   addHandlers,

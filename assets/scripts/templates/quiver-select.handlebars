@@ -1,14 +1,23 @@
-
+<!--
 {{#each surfboards}}
-  <option id='target' name="{{this.id}}">
-    <p>Id:{{this.id}}
+  <li id='target' name={{this.id}}>
+    Id:{{this.id}}
     ht({{this.height}}"),
     ({{this.shape}}),
-    ({{this.fin_setup}})</p>
-  </option>
-
-
-    {{!-- </div> --}}
-
-
+    ({{this.fin_setup}})
+    <button type="button" id={{this.id}}>Add board</button>
+  </li>
+  {{/each}} -->
+  {{#each surfboards}}
+    <li class="quiver_handles">
+      <strong>Board id: {{this.id}}</strong>
+      <br>
+      Shape: {{this.shape}}
+      <br>
+      Size: {{this.height}}"
+      <br>
+      Fin Setup: {{this.fin_setup}}
+      <hr>
+        <button type="button" id={{this.id}}>Add board</button>
+    </li>
   {{/each}}
