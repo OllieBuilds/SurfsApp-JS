@@ -359,6 +359,12 @@ webpackJsonp([0],[
 	//   showQuiver();
 	// };
 
+	// const getCharts = (data) =>{
+	//   let chartsTemplate = require('../templates/charts.handlebars');
+	//   $('.msw').append(chartsTemplate({charts:data}));
+	//
+	// };
+
 	var mswData = function mswData() {
 	  $.ajax({
 	    method: 'GET',
@@ -384,8 +390,7 @@ webpackJsonp([0],[
 	  deleteSession: deleteSession,
 	  mswData: mswData,
 	  changePassword: changePassword,
-	  displayQuiver: displayQuiver,
-	  getCharts: getCharts
+	  displayQuiver: displayQuiver
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 

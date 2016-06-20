@@ -147,18 +147,6 @@ const addBoardToSession = (success, failure, data) => {
 
 // MSW
 
-// const displayJournal = (data) => {
-//   let sessionsTemplate = require('../templates/sessions.handlebars');
-//   $('.show-sessions').append(sessionsTemplate({ sessions:data }));
-//   showQuiver();
-// };
-
-// const getCharts = (data) =>{
-//   let chartsTemplate = require('../templates/charts.handlebars');
-//   $('.msw').append(chartsTemplate({charts:data}));
-//
-// };
-
 const mswData = () => {
   $.ajax({
     method: 'GET',
@@ -166,9 +154,6 @@ const mswData = () => {
 // authorization needed?
   }).done(function(data){
     authUi.render_charts(data);
-  //   console.log(data[3].charts.swell + "working");
-  //   // getCharts(data);
-  //   // run data through success function that will add images to carousel
   }).
   fail(authUi.failure);
 };
