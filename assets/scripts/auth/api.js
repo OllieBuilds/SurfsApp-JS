@@ -164,10 +164,11 @@ const mswData = () => {
     method: 'GET',
     url: app.api + 'charts',
 // authorization needed?
-  }).done(function (data){
-    console.log(data[3].charts.swell + "working");
-    // getCharts(data);
-    // run data through success function that will add images to carousel
+  }).done(function(data){
+    authUi.render_charts(data);
+  //   console.log(data[3].charts.swell + "working");
+  //   // getCharts(data);
+  //   // run data through success function that will add images to carousel
   }).
   fail(authUi.failure);
 };
