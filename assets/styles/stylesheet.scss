@@ -38,6 +38,17 @@
   float: center;
   left: 200px;
   margin: 25px;
+  // max-width: 70%;
+  position: relative;
+  width: 756px;
+}
+
+.charts {
   max-width: 70%;
-  position: relative;;
+  img {
+    max-width: 300px;
+  }
+  button i {
+    width: 100px;
+  }
 }
