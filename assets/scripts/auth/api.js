@@ -153,11 +153,11 @@ const addBoardToSession = (success, failure, data) => {
 //   showQuiver();
 // };
 
-const getCharts = (data) =>{
-  let chartsTemplate = require('../templates/charts.handlebars');
-  $('.msw').append(chartsTemplate({charts:data}));
-
-};
+// const getCharts = (data) =>{
+//   let chartsTemplate = require('../templates/charts.handlebars');
+//   $('.msw').append(chartsTemplate({charts:data}));
+//
+// };
 
 const mswData = () => {
   $.ajax({
@@ -186,5 +186,5 @@ module.exports = {
   mswData,
   changePassword,
   displayQuiver,
-  getCharts
+  // getCharts
 };
