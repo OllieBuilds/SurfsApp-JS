@@ -84,8 +84,8 @@ const showQuiver = () => {
       Authorization: 'Token token=' + app.user1.token,
     },
   }).done(function (data) {
-    // let quivTem = require('../templates/quiver-select.handlebars');
-    // $('#show-quiver-sesh').append(quivTem({surfboards:data}));
+    let quivTem = require('../templates/quiver-select.handlebars');
+    $('#show-quiver-sesh').append(quivTem({surfboards:data}));
     displayQuiver(data);
     console.log(data);
   });
@@ -145,11 +145,31 @@ const addBoardToSession = (success, failure, data) => {
   .fail(failure);
 };
 
-const NoaaData = () => {
+// MSW
+
+// const displayJournal = (data) => {
+//   let sessionsTemplate = require('../templates/sessions.handlebars');
+//   $('.show-sessions').append(sessionsTemplate({ sessions:data }));
+//   showQuiver();
+// };
+
+// const getCharts = (data) =>{
+//   let chartsTemplate = require('../templates/charts.handlebars');
+//   $('.msw').append(chartsTemplate({charts:data}));
+//
+// };
+
+const mswData = () => {
   $.ajax({
     method: 'GET',
-    url: app.noaa,
-  }).done(console.log('data')).
+    url: app.api + 'charts',
+// authorization needed?
+  }).done(function(data){
+    authUi.render_charts(data);
+  //   console.log(data[3].charts.swell + "working");
+  //   // getCharts(data);
+  //   // run data through success function that will add images to carousel
+  }).
   fail(authUi.failure);
 };
 
@@ -163,7 +183,8 @@ module.exports = {
   showSessions,
   addBoardToSession,
   deleteSession,
-  NoaaData,
+  mswData,
   changePassword,
-  displayQuiver
+  displayQuiver,
+  // getCharts
 };

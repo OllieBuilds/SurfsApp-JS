@@ -2,11 +2,9 @@
 
 const app = {
   api: 'https://surfsapp.herokuapp.com/',
-  // api: 'https://localhost:8080/'
-  // noaa: 'http://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&application=NOS.COOPS.TAC.WL&begin_date=20160502&end_date=20160503&datum=MLLW&station=8443970&time_zone=LST&units=english&interval=&format=json'
+  // api: 'http://localhost:3000/',
+  // msw: 'http://magicseaweed.com/api/c1b08a0ce3e6bfa59407d633d5ca0a10/forecast/?spot_id=369'
 
-  // noaa: 'http://tidesandcurrents.noaa.gov/api/datagetter?begin_date=20160503&range=1&station=8443970&product=water_temperature&units=english&time_zone=lst&interval=h&application=surfsapp&format=json'
-  // http://tidesandcurrents.noaa.gov/api/datagetter?begin_date=20130808 15:00&end_date=20130808 15:06&station=8454000&product=water_temperature&units=english&time_zone=gmt&application=ports_screen&format=json
 
 };
 

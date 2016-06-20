@@ -33,6 +33,8 @@ User: I want to be able to track which surfboards I used during a given session.
 
 User: I want to be able to edit my history.
 
+[link to wireframe](assets/img/surfsappwireframe.png)
+
 ## [License](LICENSE)
 
 Source code distributed under the MIT license. Text and other assets copyright

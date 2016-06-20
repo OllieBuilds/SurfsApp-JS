@@ -31,9 +31,24 @@
 //   opacity: 0;
 //   visibility: hidden;
 // }
-.noaa {
-  float: right;
+.msw {
+  background-color: $faded-blue;
+  border: 3px solid $white;
+  border-radius: 5px;
+  float: center;
   left: 200px;
-  position: absolute;
-  right: 0;
+  margin: 25px;
+  // max-width: 70%;
+  position: relative;
+  width: 756px;
+}
+
+.charts {
+  max-width: 70%;
+  img {
+    max-width: 300px;
+  }
+  button i {
+    width: 100px;
+  }
 }

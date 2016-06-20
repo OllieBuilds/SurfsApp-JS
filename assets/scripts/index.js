@@ -9,7 +9,6 @@ const authEvents = require('./auth/events');
 const api = require('./auth/api');
 $(() => {
   authEvents.addHandlers();
-  api.NoaaData();
-
+  api.mswData();
   // intro.drawChart();
 });
